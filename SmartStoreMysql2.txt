@@ -1,0 +1,321 @@
+mysql -u root -p
+
+
+
+saeed
+use smartstore2;
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+create table admin (
+admin_ID int auto_increment PRIMARY KEY,
+ admin_name VARCHAR(100),
+ admin_last_name VARCHAR(100),
+ admin_email VARCHAR(100),
+ admin_phone VARCHAR(100),
+ Security_Question VARCHAR(100),
+ admin_answer VARCHAR(100),
+ admin_password VARCHAR(100),
+ admin_date date);
+
+
+INSERT INTO admin (admin_name,admin_last_name,admin_phone,admin_email,Security_Question,admin_answer,admin_password) VALUES (  'saeed', 'amini','0799999999','amini506750@gmail.com','what was your first car?','cars', 'saeed6750');
+
+
+
+
+
+
+CREATE TABLE customer (
+customer_ID int auto_increment PRIMARY KEY,
+  customer_email VARCHAR(100),
+  customer_name VARCHAR(100)  ,
+  customer_last_name VARCHAR(100)  ,
+    Security_Question VARCHAR(100)  ,
+	customer_answer VARCHAR(100)  ,
+  customer_password VARCHAR(100)  );
+	   
+
+
+
+INSERT INTO customer (customer_email,customer_name,customer_last_name,Security_Question,customer_answer,customer_password) VALUES (  'saeedamini506750@gmail.com', 'saeed', 'amini', 'what was your first car?','car', 'saeed6750');
+INSERT INTO customer (customer_email,customer_name,customer_last_name,Security_Question,customer_answer,customer_password) VALUES ('omideman50@gmail.com','omid', 'eman', 'saeed','what is the name of your first friend?', 'omid6750');
+INSERT INTO customer (customer_email,customer_name,customer_last_name,Security_Question,customer_answer,customer_password) VALUES ( 'aliahmady33@gmail.com', 'ali', 'ahmady', 'what is the name of your first friend?', 'omid','saeed', 'ali506750');
+INSERT INTO customer (customer_email,customer_name,customer_last_name,Security_Question,customer_answer,customer_password) VALUES (  'ahmadalizadh@gmail.com', 'ahmad', 'alizadh',' what is the name of your first friend?','saeed', 'ahmadalizadh');
+INSERT INTO customer (customer_email,customer_name,customer_last_name,Security_Question,customer_answer,customer_password)  VALUES ( 'mohamadali@gmail.com', 'mohamad', 'ali', 'what is the name of your first friend?', 'saeed', 'mohamadali6767');
+
+
+  
+  
+  
+  
+  
+ CREATE TABLE product_category (
+ name_category VARCHAR(100) ,category_ID int auto_increment ,PRIMARY KEY (category_ID));
+ 
+ INSERT INTO  product_category (name_category,category_ID) VALUES (  'TV',1);
+ INSERT INTO  product_category (name_category,category_ID) VALUES (  'MACHIN',2);
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+CREATE TABLE product (
+product_name VARCHAR(100)  ,
+product_price int(50)  ,
+product_size VARCHAR(100),
+product_attribute VARCHAR(100),
+product_mark VARCHAR(100) ,
+product_photo VARCHAR(100),
+product_active varchar(3)  
+,product_ID INT auto_increment,
+product_benefit int(50),
+category_ID int(50) ,
+PRIMARY KEY (product_ID),
+FOREIGN KEY (category_ID) REFERENCES product_category(category_ID)
+);
+alter  table product alter column product_active set default 'yes';
+
+
+
+
+INSERT INTO product (product_name,product_price,product_size,product_attribute,product_mark,product_photo,product_benefit) VALUES ( 'TV', 10000, '40 inch', NULL, 'philips','address_photo',100);
+INSERT INTO product (product_name,product_price,product_size,product_attribute,product_mark,product_photo,product_benefit) VALUES ( 'TV', 12000, '43 inch', NULL, 'philips','address_photo',120);
+INSERT INTO product (product_name,product_price,product_size,product_attribute,product_mark,product_photo,product_benefit) VALUES ( 'TV', 14000, '50 inch', NULL, 'philips','address_photo',140);
+INSERT INTO product (product_name,product_price,product_size,product_attribute,product_mark,product_photo,product_benefit) VALUES ( 'TV', 14500, '43 inch', 'smart', 'philips','address_photo',145);
+INSERT INTO product (product_name,product_price,product_size,product_attribute,product_mark,product_photo,product_benefit) VALUES ( 'TV', 16000, '55 inch', NULL, 'philips','address_photo',160);
+INSERT INTO product (product_name,product_price,product_size,product_attribute,product_mark,product_photo,product_benefit) VALUES ( 'TV', 35000, '65 inch', 'smart', 'AKAI','address_photo',350);
+INSERT INTO product (product_name,product_price,product_size,product_attribute,product_mark,product_photo,product_benefit) VALUES ( 'TV', 35000, '65 inch', 'smart', 'EKO','address_photo',350);
+INSERT INTO product (product_name,product_price,product_size,product_attribute,product_mark,product_photo,product_benefit) VALUES ( 'TV', 35000, '65 inch', 'smart', 'BLAUPUNKT','address_photo',350);
+INSERT INTO product (product_name,product_price,product_size,product_attribute,product_mark,product_photo,product_benefit) VALUES ( 'TV', 11000, '32 inch', 'smart', 'TCL','address_photo',110);
+INSERT INTO product (product_name,product_price,product_size,product_attribute,product_mark,product_photo,product_benefit) VALUES ( 'TV', 8000, '32 inch', NULL, 'panasonic','address_photo',80);
+INSERT INTO product (product_name,product_price,product_size,product_attribute,product_mark,product_photo,product_benefit) VALUES ( 'TV', 8000, '32 inch', NULL, 'samsung','address_photo',80);
+INSERT INTO product (product_name,product_price,product_size,product_attribute,product_mark,product_photo,product_benefit) VALUES ( 'TV', 8000, '32 inch', NULL, 'TOSHIBA','address_photo',80);
+INSERT INTO product (product_name,product_price,product_size,product_attribute,product_mark,product_photo,product_benefit) VALUES ( 'TV', 8000, '32 inch', 'smart', 'LG','address_photo',500);
+INSERT INTO product (product_name,product_price,product_size,product_attribute,product_mark,product_photo,product_benefit) VALUES ( 'MACHIN' ,14000, '7 kg', 'white', 'sumsung','address_photo',140);
+INSERT INTO product (product_name,product_price,product_size,product_attribute,product_mark,product_photo,product_benefit) VALUES ( 'MACHIN', 18000, '7.5 kg', 'white and whitnamy 2018', 'sumsung','address_photo',180);
+INSERT INTO product (product_name,product_price,product_size,product_attribute,product_mark,product_photo,product_benefit) VALUES ( 'MACHIN', 14500, '8 kg', 'white', 'sumsung','address_photo',145);
+INSERT INTO product (product_name,product_price,product_size,product_attribute,product_mark,product_photo,product_benefit) VALUES ( 'MACHIN', 15000, '9 kg','black','sumsung','address_photo',150);
+INSERT INTO product (product_name,product_price,product_size,product_attribute,product_mark,product_photo,product_benefit) VALUES ( 'MACHIN', 15000, '9 kg','white','sumsung','address_photo',15000);
+
+	   
+	   
+	   
+	   
+	   
+	   
+CREATE TABLE shipment (
+shipment_ID int auto_increment PRIMARY KEY,
+ customer_country VARCHAR(100) ,
+    customer_city VARCHAR(100) ,
+     customer_address VARCHAR(500) ,
+	   customer_phone VARCHAR(100),
+shipment_date DATE  ,
+customer_ID int,
+FOREIGN KEY (customer_ID) REFERENCES customer(customer_ID)
+	);	   
+
+
+
+
+ INSERT INTO  shipment (customer_country,customer_city,customer_address,customer_phone,shipment_date) VALUES (  'afg','kabul','kabul_university','0791506750','2021-01-01');
+ INSERT INTO  shipment (customer_country,customer_city,customer_address,customer_phone,shipment_date) VALUES (  'afg','nimrooz','zerange','0799999999','2021-01-01');
+ INSERT INTO  shipment (customer_country,customer_city,customer_address,customer_phone,shipment_date) VALUES (  'afg','herat','park','0791111111','2021-01-01');
+
+
+
+CREATE TABLE cart (
+  cart_ID INT auto_increment PRIMARY KEY,
+  quantity_cart INT,
+  orderDate varchar(100),
+ deliveryDate varchar(100),
+  paymentMethod varchar(100),
+  transactionID varchar(100),
+  customer_ID INT(10),
+  product_ID INT(10),
+  FOREIGN KEY (customer_ID) REFERENCES customer(customer_ID),
+  FOREIGN KEY (product_ID) REFERENCES product(product_ID)
+);
+
+
+
+INSERT INTO cart (quantity_cart,paymentMethod,customer_ID,product_ID) VALUES (1,'online_shopping', 1, 5);
+INSERT INTO cart (quantity_cart,paymentMethod,customer_ID,product_ID) VALUES (2,'online_shopping', 1, 10);
+INSERT INTO cart (quantity_cart,paymentMethod,customer_ID,product_ID) VALUES (7,'online_shopping', 3, 2);
+INSERT INTO cart (quantity_cart,paymentMethod,customer_ID,product_ID) VALUES (1,'online_shopping', 2, 3);
+	   
+
+
+
+
+CREATE TABLE wishList (
+  wishList_ID INT auto_increment PRIMARY KEY,
+  massege varchar(500),
+  customer_ID INT ,
+  product_ID INT,
+  FOREIGN KEY (customer_ID) REFERENCES customer(customer_ID));
+
+
+
+INSERT INTO wishList (massege,customer_ID,product_ID) VALUES ('good customer_ID 1',1, 5);
+INSERT INTO wishList (massege,customer_ID,product_ID) VALUES ('good customer_ID 2',2, 10);
+INSERT INTO wishList (massege,customer_ID,product_ID) VALUES ('good customer_ID 3',3, 2);
+INSERT INTO wishList (massege,customer_ID,product_ID) VALUES ('good customer_ID 1',1, 3);
+INSERT INTO wishList (massege,customer_ID,product_ID) VALUES ('good customer_ID 1',1, 11);
+INSERT INTO wishList (massege,customer_ID,product_ID) VALUES ('good customer_ID 1',5, 11);
+
+
+
+
+CREATE TABLE payment (
+payment_ID INT auto_increment PRIMARY KEY,
+  customer_ID int,
+  amoung_payment DECIMAL(10,2),
+  payment_date DATE  ,
+  payment_method varchar(100),
+  FOREIGN KEY (customer_ID) REFERENCES customer(customer_ID)
+);
+
+
+
+INSERT INTO payment (customer_ID,amoung_payment,payment_date,payment_method) VALUES ( 1, 20000, '2021-01-01','online_shopping');
+INSERT INTO payment (customer_ID,amoung_payment,payment_date,payment_method) VALUES ( 2, 15000, '2021-02-01','online_shopping');
+INSERT INTO payment (customer_ID,amoung_payment,payment_date,payment_method) VALUES ( 3, 10000, '2021-03-01','online_shopping');
+INSERT INTO payment (customer_ID,amoung_payment,payment_date,payment_method) VALUES ( 2, 5000, '2021-04-01','online_shopping');
+INSERT INTO payment (customer_ID,amoung_payment,payment_date,payment_method) VALUES ( 1, 8000, '2021-05-01','online_shopping');
+
+
+
+	 
+	   
+	   CREATE TABLE orders (
+	   order_ID INT auto_increment PRIMARY KEY,
+	   order_date DATE  ,
+	   total_price_order int,
+  customer_ID INT,
+  payment_ID INT,
+  shipment_ID INT,
+  FOREIGN KEY (customer_ID) REFERENCES customer(customer_ID),
+  FOREIGN KEY (shipment_ID) REFERENCES shipment(shipment_ID),
+  FOREIGN KEY (payment_ID) REFERENCES payment(payment_ID)
+	);
+
+
+
+
+INSERT INTO orders (order_date,total_price_order,customer_ID,payment_ID,shipment_ID) VALUES ( '2021-01-01', 100000, 1,1,1);
+INSERT INTO orders (order_date,total_price_order,customer_ID,payment_ID,shipment_ID) VALUES ( '2021-01-01', 100000, 2,2,2);
+INSERT INTO orders (order_date,total_price_order,customer_ID,payment_ID,shipment_ID) VALUES ( '2021-01-01', 100000, 3,3,3);
+
+
+
+
+  CREATE TABLE order_item (
+	   item_ID INT auto_increment PRIMARY KEY,
+	   quantity_item int  ,
+	  price_item decimal(10,2),
+  product_ID INT,
+ order_ID INT,
+  FOREIGN KEY (product_ID) REFERENCES product(product_ID),
+  FOREIGN KEY (order_ID) REFERENCES orders(order_ID)
+);
+
+
+
+
+
+INSERT INTO order_item (quantity_item,price_item,product_ID,order_ID) VALUES(1,20000,1,1);
+INSERT INTO order_item (quantity_item,price_item,product_ID,order_ID) VALUES(2,30000,3,2);
+INSERT INTO order_item (quantity_item,price_item,product_ID,order_ID) VALUES(3,40000,2,3);
+INSERT INTO order_item (quantity_item,price_item,product_ID,order_ID) VALUES(1,50000,2,1);
+
+
+
+
+
+
+
+
+select table
+----------------------
+select * from admin;
+select * from customer;
+select * from product;
+select * from orders;
+select * from order_item;
+select * from wishList;
+select * from shipment;
+select * from cart;
+select * from payment;
+select * from product_category;
+
+
+
+
+
+
+desc table
+----------------------
+
+desc admin;
+desc customer;
+desc product ;
+desc order_item;
+desc orders ;
+desc payment;
+desc cart;
+desc wishList;
+desc product_category;
+desc shipment;
+
+
+
+drop table
+----------------------
+drop  table cart;
+drop table shipment;
+drop table wishList;
+drop table product_category;
+drop table  orders;
+drop table order_item;
+drop table payment;
+drop table customer;
+drop table product;
+drop table admin;
+
+
+
+
+
+
+
+inner join
+---------------------
+
+SELECT *
+FROM customer
+INNER JOIN orders
+ON customer.customer_ID = orders.customer_ID;
+
+
+
+
+
+search for mark product
+---------------------------
+select * from product where product_mark Like'philips';
+select * from product where product_mark Like'LG';
+select * from product where product_mark Like'sumsung';
+select * from product where product_mark Like'sumsung' and name_product Like'MACHIN';
+select * from product where product_mark Like'philips' and name_product Like'TV';
+
+
+
+search for product_size like inch product
+----------------------------------------
+select * from product where product_size Like'65 inch';
+select * from product where product_size  Like'65 inch' and product_mark  Like'EKO';
+
+
